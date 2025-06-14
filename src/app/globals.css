@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 96.1%; /* Light Gray #F5F5F5 */
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 197 78% 52%; /* Blue #29ABE2 */
+    --primary-foreground: 0 0% 100%; /* White text on primary */
+    --secondary: 200 10% 92%; /* Lighter gray for secondary elements */
+    --secondary-foreground: 0 0% 9%;
+    --muted: 200 10% 90%; /* Muted gray */
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 33 100% 50%; /* Orange #FF8C00 */
+    --accent-foreground: 0 0% 100%; /* White text on accent */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 100%; /* White background for inputs */
+    --input-border: 0 0% 89.8%; /* Explicit input border color */
+    --ring: 197 78% 52%; /* Primary color for rings */
+    --chart-1: 197 78% 52%;
+    --chart-2: 33 100% 50%;
+    --chart-3: 120 50% 50%; /* Greenish for variety */
+    --chart-4: 240 50% 60%; /* Purplish for variety */
+    --chart-5: 60 70% 50%; /* Yellowish for variety */
+    --radius: 0.5rem;
+
+    /* Sidebar specific theme variables, can be adjusted */
+    --sidebar-background: 0 0% 10%; /* Darker sidebar */
+    --sidebar-foreground: 0 0% 90%;
+    --sidebar-primary: 197 78% 60%; /* Slightly lighter primary for sidebar highlights */
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 197 78% 20%; /* Darker accent for sidebar */
+    --sidebar-accent-foreground: 0 0% 90%;
+    --sidebar-border: 0 0% 15%;
+    --sidebar-ring: 197 78% 52%;
+  }
+
+  .dark {
+    --background: 0 0% 10%; /* Dark background for dark mode */
+    --foreground: 0 0% 90%;
+    --card: 0 0% 15%;
+    --card-foreground: 0 0% 90%;
+    --popover: 0 0% 15%;
+    --popover-foreground: 0 0% 90%;
+    --primary: 197 78% 58%; /* Slightly lighter blue for dark mode */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 20%;
+    --secondary-foreground: 0 0% 90%;
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 33 100% 55%; /* Slightly lighter orange for dark mode */
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 25%;
+    --input: 0 0% 18%;
+    --input-border: 0 0% 25%;
+    --ring: 197 78% 58%;
+
+    --sidebar-background: 0 0% 8%; 
+    --sidebar-foreground: 0 0% 85%;
+    --sidebar-primary: 197 78% 65%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 197 78% 25%;
+    --sidebar-accent-foreground: 0 0% 85%;
+    --sidebar-border: 0 0% 12%;
+    --sidebar-ring: 197 78% 58%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  /* Style for input fields to use explicit border and background */
+  input, textarea, select {
+    @apply bg-input border-[hsl(var(--input-border))];
+  }
+}
