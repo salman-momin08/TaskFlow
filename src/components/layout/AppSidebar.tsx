@@ -40,7 +40,7 @@ const navItems: NavItem[] = [
   { href: '/dashboard', label: 'Dashboard', icon: LayoutDashboard, roles: ['Developer', 'Manager'], exact: true },
   { href: '/dashboard/my-tasks', label: 'My Tasks', icon: ListChecks, roles: ['Developer'] },
   { href: '/dashboard/all-tasks', label: 'All Tasks', icon: ListChecks, roles: ['Manager'] },
-  { href: '/dashboard/create-task', label: 'Create Task', icon: PlusCircle, roles: ['Developer', 'Manager'] },
+  { href: '/dashboard/create-task', label: 'Create Task', icon: PlusCircle, roles: ['Manager'] },
   { href: '/dashboard/ai-assign', label: 'AI Assign', icon: Brain, roles: ['Manager'] },
   { href: '/dashboard/reports', label: 'Reports', icon: BarChart3, roles: ['Manager'] },
   { href: '/dashboard/user-management', label: 'User Management', icon: Users, roles: ['Manager'] },

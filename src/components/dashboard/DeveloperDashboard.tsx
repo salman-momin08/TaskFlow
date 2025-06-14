@@ -5,7 +5,7 @@ import React, { useMemo } from 'react';
 import type { User, Task } from '@/types';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { PlusCircle, Filter, CalendarDays, BarChart3 } from 'lucide-react';
+import { Filter, CalendarDays, BarChart3, ListChecks } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { BarChart as RechartsBarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
@@ -23,11 +23,10 @@ export default function DeveloperDashboard({ user }: DeveloperDashboardProps) {
   }, [user.id]);
 
   const tasksToDisplay = useMemo(() => {
-    // Display a mix of tasks, prioritizing In Progress and Open
     const inProgress = assignedTasks.filter(t => t.status === 'In Progress');
     const open = assignedTasks.filter(t => t.status === 'Open');
     const other = assignedTasks.filter(t => t.status !== 'In Progress' && t.status !== 'Open');
-    return [...inProgress, ...open, ...other].slice(0, 3); // Show up to 3 tasks
+    return [...inProgress, ...open, ...other].slice(0, 3); 
   }, [assignedTasks]);
 
   const dailyActivityData = useMemo(() => {
@@ -67,24 +66,15 @@ export default function DeveloperDashboard({ user }: DeveloperDashboardProps) {
               <CardTitle className="text-3xl font-headline text-primary">Welcome, {user.name}!</CardTitle>
               <CardDescription className="text-lg">Here's an overview of your tasks ({assignedTasks.length} total).</CardDescription>
             </div>
-            <Link href="/dashboard/create-task" passHref>
-              <Button className="mt-4 sm:mt-0">
-                <PlusCircle className="mr-2 h-5 w-5" /> Create New Task
-              </Button>
-            </Link>
           </div>
         </CardHeader>
         <CardContent>
            <div className="flex flex-wrap gap-4 mb-6">
              <Link href="/dashboard/my-tasks">
                 <Button variant="outline">
-                    <Filter className="mr-2 h-4 w-4" /> View All My Tasks
+                    <ListChecks className="mr-2 h-4 w-4" /> View All My Tasks
                 </Button>
              </Link>
-            {/* Placeholder for future sorting functionality */}
-            {/* <Button variant="outline" disabled>
-              <CalendarDays className="mr-2 h-4 w-4" /> Sort by Date
-            </Button> */}
           </div>
         </CardContent>
       </Card>
@@ -109,12 +99,7 @@ export default function DeveloperDashboard({ user }: DeveloperDashboardProps) {
            <Card className="md:col-span-2 lg:col-span-3 flex flex-col items-center justify-center py-12 text-center">
             <Image src="https://placehold.co/300x200.png" data-ai-hint="empty tasks" alt="No tasks" width={300} height={200} className="rounded-md mb-6 opacity-70" />
             <CardTitle className="font-headline text-2xl mb-2">No Tasks Assigned</CardTitle>
-            <CardDescription>Looks like your plate is clear! Enjoy the calm or create a new task.</CardDescription>
-            <Link href="/dashboard/create-task" passHref className="mt-4">
-              <Button>
-                <PlusCircle className="mr-2 h-5 w-5" /> Create Task
-              </Button>
-            </Link>
+            <CardDescription>Looks like your plate is clear! If you need to report an issue, please contact your manager.</CardDescription>
           </Card>
          )}
       </div>
@@ -169,4 +154,3 @@ export default function DeveloperDashboard({ user }: DeveloperDashboardProps) {
     </div>
   );
 }
-
